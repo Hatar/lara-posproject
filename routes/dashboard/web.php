@@ -7,8 +7,11 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
             //Route categories
             Route::resource('/categories','CategoryController')->except('show');
 
-            //Route
+            //Route Products
             Route::resource('/products','ProductController')->except('show');
+
+            //Route Clients
+            Route::resource('/clients','ClientController')->except('show');
 
             //Route users
             Route::resource('/users','UserController')->except('show');
