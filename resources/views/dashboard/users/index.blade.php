@@ -4,10 +4,10 @@
 
 <div class="content-wrapper">
     <section class="content-header">
-        <h1>@lang('site.userss') <small>{{ $users->total() }}</small> </h1>
+        <h1>@lang('site.users') <small>{{ $users->total() }}</small> </h1>
         <ol class="breadcrumb">
             <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-            <li class="active">@lang('site.userss')</li>
+            <li class="active">@lang('site.users')</li>
         </ol>
     </section>
     <section class="content">
@@ -32,7 +32,7 @@
                     </div>
                 </form>
 
-            <h3 class="box-title">@lang('site.userss')</h3>
+            <h3 class="box-title">@lang('site.users')</h3>
             </div>
             <div class="box-body">
                 @if($users->count() >0)

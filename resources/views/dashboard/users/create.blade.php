@@ -5,10 +5,10 @@
 <div class="content-wrapper">
     <section class="content-header">
 
-        <h1>@lang('site.userss')</h1>
+        <h1>@lang('site.users')</h1>
         <ol class="breadcrumb">
             <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
-            <li><a href="{{ route('dashboard.users.index')}}"><i class="fa fa-users"></i> @lang('site.userss')</a></li>
+            <li><a href="{{ route('dashboard.users.index')}}"><i class="fa fa-users"></i> @lang('site.users')</a></li>
             <li class="active">@lang('site.add')</li>
         </ol>
     </section>
@@ -59,7 +59,7 @@
                                 <div class="card-header d-flex p-0">
                                     <h3 class="card-title p-3">@lang('site.permissions')</h3>
                                     @php
-                                        $models =['userss','category','products'];
+                                        $models =['users','categories','products'];
                                         $maps =['create','read','update','delete'];
                                     @endphp
                                     <ul class="nav nav-pills ml-auto p-2">

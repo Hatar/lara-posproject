@@ -40,6 +40,8 @@
                         <thead>
                             <th>#</th>
                             <th>@lang('site.name')</th>
+                            <th>@lang('site.products_count')</th>
+                            <th>@lang('site.related_products')</th>
                             <th>@lang('site.action')</th>
                         </thead>
                         <tbody>
@@ -47,6 +49,8 @@
                                <tr>
                                     <th>{{ $index + 1 }}</th>
                                     <th>{{ $category->name }}</th>
+                                    <th>{{ $category->products()->count() }}</th>
+                                    <th><a href="{{ route('dashboard.products.index',['category_id',$category->id]) }}" class="btn btn-primary btn-sm">@lang('site.related_products')</a></th>
                                     <th>
                                         @if(Auth()->user()->hasPermission('update_categories'))
                                             <a href="{{ route('dashboard.categories.edit',$category->id) }}" class="btn btn-success btn-sm"><i class="fa fa-edit"></i>  @lang('site.edit')</a>
