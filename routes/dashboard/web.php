@@ -12,7 +12,7 @@ Route::group(['prefix' => LaravelLocalization::setLocale(),'middleware' => [ 'lo
 
             //Route Clients
             Route::resource('/clients','ClientController')->except('show');
-
+            Route::resource('/clients.orders','Client\OrderController')->except('show');
             //Route users
             Route::resource('/users','UserController')->except('show');
 
