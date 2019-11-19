@@ -7,7 +7,7 @@
 
         <h1>@lang('site.products')</h1>
         <ol class="breadcrumb">
-            <li><a href="{{ route('dashboard.index') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
+            <li><a href="{{ route('dashboard.welcome') }}"><i class="fa fa-dashboard"></i> @lang('site.dashboard')</a></li>
             <li><a href="{{ route('dashboard.products.index')}}"><i class="fa fa-users"></i> @lang('site.products')</a></li>
             <li class="active">@lang('site.edit')</li>
         </ol>
@@ -61,12 +61,12 @@
 
                         <div class="form-group">
                             <label>@lang('site.purchase_price')</label>
-                            <input type="number" class="form-control" name="purchase_price" value={{ $product->purchase_price }} placeholder={{ __('site.purchase_price') }}>
+                            <input type="number" class="form-control" step="0.01"  name="purchase_price" value={{ $product->purchase_price }} placeholder={{ __('site.purchase_price') }}>
                         </div>
 
                         <div class="form-group">
                             <label>@lang('site.sale_price')</label>
-                            <input type="number" class="form-control" name="sale_price" value={{ $product->sale_price }} placeholder={{ __('site.sale_price') }}>
+                            <input type="number" class="form-control" step="0.01"  name="sale_price" value={{ $product->sale_price }} placeholder={{ __('site.sale_price') }}>
                         </div>
 
                         <div class="form-group">
