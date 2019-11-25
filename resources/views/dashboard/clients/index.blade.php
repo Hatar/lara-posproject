@@ -51,7 +51,7 @@
                                     <th>{{ $index + 1 }}</th>
                                     <th>{{ $client->name }}</th>
                                     <th>{{ $client->address }}</th>
-                                    <th>{{ implode($client->phone,'-') }}</th>
+                                    <th>{{ is_array($client->phone) ? implode($client->phone,'-')  : $client->phone }}</th>
                                     <th>
                                         @if(Auth()->user()->hasPermission('create_orders'))
                                         <a href="{{ route('dashboard.clients.orders.create',$client->id) }}" class="btn btn-primary btn-sm">@lang('site.add_order')</a>

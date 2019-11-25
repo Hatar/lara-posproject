@@ -26,11 +26,11 @@
                                 <div class="panel-info">
                                     <div class="panel-heading">
                                         <div class="panel-title">
-                                            <a href="#{{$category->name}}" data-toggle="collapse">{{$category->name}}</a>
+                                            <a href="#{{ str_replace(' ','-',$category->name) }}" data-toggle="collapse">{{$category->name}}</a>
                                         </div>
                                     </div>
                                 </div>
-                                <div id={{$category->name}} class="panel-collaps collapse">
+                                <div id="{{ str_replace(' ', '-', $category->name) }}" class="panel-collaps collapse">
                                     <div class="panel-body">
                                         @if($category->products->count()>0)
                                             <table class="table table-hover">
@@ -94,7 +94,12 @@
                             </table><!-- end of table -->
 
                             <h4>@lang('site.total') : <span class="total-price">0</span></h4>
-                            <button class="btn btn-primary btn-block disabled" id="add-order-form-btn"><i class="fa fa-plus"></i> @lang('site.add_order')</button>
+                            <button
+                                class="btn btn-primary btn-block disabled"
+                                id="add-order-form-btn"
+                                >
+                                <i class="fa fa-plus"></i> @lang('site.add_order')
+                            </button>
                         </form>
                     </div><!-- end of box body -->
                 </div><!-- end of box -->
