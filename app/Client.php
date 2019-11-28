@@ -12,11 +12,11 @@ class Client extends Model
         'phone' => 'array'
     ];
 
-    public function orders(){
-        return $this->hasMany(Order::class);
-    }
-
     public function getNameAttribute($value){
         return ucfirst($value);
+    }
+
+    public function orders(){
+        return $this->hasMany(Order::class);
     }
 }

@@ -39,6 +39,23 @@ $(document).ready(function(){
         $(this).closest('tr').find('.product-price').html($.number(quantity * unitPrice,2));
         calculateTotal();
     });
+
+    //Show Product Liste
+    $('.order-products').click(function(e){
+        e.preventDefault();
+        var url = $(this).data('url');
+        var method =$(this).data('method')
+        $('#loading').css('display', 'flex');
+        $.ajax({
+            url:url,
+            method:method,
+            success:function(data){
+                $('#loading').css('display', 'none');
+                $('#order-product-list').empty();
+                $('#order-product-list').append(data);
+            }
+        });
+    });
 });//End of document Ready
 
 //Calculate Total

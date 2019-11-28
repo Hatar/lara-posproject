@@ -61,13 +61,31 @@
                                         <td>{{ $order->created_at->toFormattedDateString() }}</td>
 
                                         <td>
+
                                             <button class="btn btn-primary btn-sm order-products"
-                                                    data-url=""
+                                                    data-url="{{ route('dashboard.orders.products',$order->id) }}"
                                                     data-method="get"
                                             >
                                                 <i class="fa fa-list"></i>
                                                 @lang('site.show')
                                             </button>
+
+                                        @if(auth()->user()->hasPermission('update_orders'))
+                                            <a href="{{ route('dashboard.clients.orders.edit',['client'=>$order->client->id,'order'=>$order->id]) }}" class="btn btn-success btn-sm"><i class="fa fa-pencil"></i> @lang('site.edit')</a>
+                                        @else
+                                            <a href="#" class="btn btn-success disabled"><i class="fa fa-pencil"></i> @lang('site.edit')</a>
+                                        @endif
+
+                                        @if(auth()->user()->hasPermission('delete_orders'))
+                                            <form action="{{ route('dashboard.orders.destroy',$order->id) }}" method="post" style="display: inline-block;">
+                                                @Method('delete')
+                                                @csrf
+                                                <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-trash" aria-hidden="true"></i> @lang('site.delete')</button>
+                                            </form>
+                                        @else
+                                        lse
+                                            <a href="#" class="btn btn-danger btn-sm" disabled><i class="fa fa-trash"></i> @lang('site.delete')</a>
+                                        @endif
                                         </td>
                                     </tr>
                                 @endforeach
