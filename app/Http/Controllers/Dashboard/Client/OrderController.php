@@ -9,6 +9,7 @@ class OrderController extends Controller
 {
     public function create(Client $client){
         $categories = Category::with('products')->get();
+        $orders = $client->orders()->with('products')->paginate(5);
         return view('dashboard.clients.orders.create',compact('client','categories','orders'));
     }
 
@@ -25,7 +26,8 @@ class OrderController extends Controller
 
     public function edit(Client $client,Order $order){
         $categories = Category::with('products')->get();
-        return view('dashboard.clients.orders.edit',compact('client','order','categories'));
+        $orders = $client->orders()->with('products')->paginate(5);
+        return view('dashboard.clients.orders.edit',compact('client','order','categories','orders'));
     }
 
     public function update(Request $request,Client $client,Order $order){

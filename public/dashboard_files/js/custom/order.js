@@ -56,6 +56,12 @@ $(document).ready(function(){
             }
         });
     });
+
+    //Print
+    $(document).on('click','.print-btn',function(e){
+        $('#print-area').printThis();
+    });
+
 });//End of document Ready
 
 //Calculate Total
@@ -66,7 +72,7 @@ function calculateTotal(){
     })
     $('.total-price').html($.number(price,2));
     if(price >0){
-            $('#add-order-form-btn').removeClass('disabled');
+    $('#add-order-form-btn').removeClass('disabled');
     }else {
             $('#add-order-form-btn').addClass('disabled');
     }

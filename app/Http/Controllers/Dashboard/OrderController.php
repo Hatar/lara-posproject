@@ -7,6 +7,7 @@ use App\Http\Controllers\Controller;
 use App\Order;
 class OrderController extends Controller
 {
+
     public function index(Request $request){
         $orders = Order::whereHas('client',function($q) use ($request){
             $q->where('name','like','%'. $request->search . '%');
@@ -18,7 +19,6 @@ class OrderController extends Controller
         $products = $order->products;
         return view('dashboard.orders._products',compact('order','products'));
     }
-
 
     public function destroy(Order $order){
 
